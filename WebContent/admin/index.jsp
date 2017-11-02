@@ -7,7 +7,6 @@
 <jsp:useBean id="prodBean" class="managed.ProdutoManaged"></jsp:useBean>
 <jsp:useBean id="servBean" class="managed.ServicoManaged"></jsp:useBean>
 
-
   <header id="main-header" class="py-2 bg-primary text-white">
     <div class="container">
       <div class="row">

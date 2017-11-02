@@ -13,9 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- * Servlet Filter implementation class FiltroLogin
- */
+
 @WebFilter(
 		dispatcherTypes = {
 				DispatcherType.REQUEST, 
@@ -30,16 +28,11 @@ import javax.servlet.http.HttpSession;
 		},servletNames= {"ControleLogin"})
 public class FiltroLogin implements Filter {
 
-    /**
-     * Default constructor. 
-     */
     public FiltroLogin() {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see Filter#destroy()
-	 */
+
 	public void destroy() {
 		// TODO Auto-generated method stub
 	}

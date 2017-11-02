@@ -34,7 +34,6 @@
   <meta property="og:description" content="Uma loja especializada em produtos e conserto da marca apple, iPhone, iPad entre outros e acessórios!" />
   <meta property="og:image og:image:width og:image:height" content="http://www.hidemiphone.atwebpages.com/path/image.jpg" />
   <meta property="fb:app_id" content="1518140674937267" />
-    
 
   <style>
   .aparelho img{

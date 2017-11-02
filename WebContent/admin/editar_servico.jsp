@@ -91,9 +91,7 @@
                   <hr>
                   
                 </div>
-                <small id="fileHelp" class="form-text text-muted text-left">
-                    <p class="help-block">* Pressione <span class="fa fa-plus"></span> para adicionar campo no formulário <br>* Pressione <span class="fa fa-minus"></span> para remover o campo do formulário</p>
-                	</small>
+             
                 </div>
                 <hr>
                 <div class="form-group">
@@ -102,9 +100,7 @@
           			<a href="servico.jsp" class="btn btn-info btn-md"><i class="fa fa-list-alt"></i> 
           Lista de serviços</a>
                 </div>
-                <small id="fileHelp" class="form-text text-muted">
-                    <p class="help-block">* Pressione <span class="fa fa-plus"></span> para adicionar campo no formulário * Pressione <span class="fa fa-minus"></span> para remover o campo do formulário</p>
-                	</small>
+            
               </form>
             </div>
           </div>
