@@ -5,6 +5,9 @@
 <div class="">
 <jsp:useBean id="prodCli" class="managed.ClienteManaged"></jsp:useBean>
 <jsp:useBean id="prodBean" class="managed.ProdutoManaged"></jsp:useBean>
+<jsp:useBean id="servBean" class="managed.ServicoManaged"></jsp:useBean>
+
+
   <header id="main-header" class="py-2 bg-primary text-white">
     <div class="container">
       <div class="row">
@@ -89,7 +92,7 @@
           <div class="card text-center card-success text-white mb-3">
             <div class="card-block">
               <h3>Serviço</h3>
-              <h1 class="display-4"><i class="fa fa-folder-open-o"></i> 4</h1>
+              <h1 class="display-4"><i class="fa fa-folder-open-o"></i> ${fn:length(servBean.listaServ)}</h1>
               <a href="servico.jsp" class="btn btn-sm btn-outline-secondary text-white">Visualizar</a>
             </div>
           </div>

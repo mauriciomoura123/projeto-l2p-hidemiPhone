@@ -4,6 +4,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
   <header id="main-header" class="py-2 bg-primary text-white">
+
     <div class="container">
       <div class="row">
         <div class="col-md-6">
@@ -36,14 +37,15 @@
       <div class="row">
         <div class="col">
           <div class="card">
+           <form action="atualizar_servico" method="POST" enctype="multipart/form-data">
             <div class="card-header">
               <h4>Editar Serviço</h4>
             </div>
             <div class="card-block">
-              <form action="atualizar_servico" method="POST" enctype="multipart/form-data">
+             
                  <div class="form-group">
                           <div class="main-img-preview">
-                            <img class="thumbnail img-mostrar-1" src="imgProdutos/${servico.foto }" title="Imagem do Serviço">
+                            <img class="thumbnail img-mostrar-1" src="imgProdutos/${s.foto }" title="Imagem do Serviço">
                         </div>
                         <hr>
                         <div class="input-group">
@@ -61,21 +63,33 @@
                 </div>
                 <div class="form-group">
                   <label for="title" class="form-control-label">Nome</label>
-                  <input type="text" name="nome" class="form-control" value="${servico.nome }" placeholder="Nome do aparelho...">
+                  <input type="text" name="nome" class="form-control" value="${s.nome }" placeholder="Nome do aparelho...">
                 </div>
                <div class="form-group">
                 <div class="row">
+                <input type="hidden" name="id" value="${s.codigo }">
+                
+                
+                
+                
                 <div class="col-md-9">
                   <label for="title" class="form-control-label">Descrição</label>
-                  <input type="text" name="descricaoServ" class="form-control" value="${servico.descricao }" placeholder="Tipo de serviço...">
+                  <c:forEach items="${d }" var="d">
+                  <input type="hidden" name="idDesc" value="${d.codigo }">
+                	  <input type="text" name="descricaoServ" class="form-control" value="${d.descricao }" placeholder="Tipo de serviço..."><br>
+                	</c:forEach>
                 </div>
+                
                 <div class="col-md-3">
                   <label for="title" class="form-control-label">Preço </label>
-                  <input type="text" name="precoServ" class="form-control" value="<fmt:formatNumber value='${servico.valor }' type='currency'></fmt:formatNumber>" placeholder="Valor do serviço...">
+                   <c:forEach items="${d }" var="d">
+                  <input type="text" name="precoServ" class="form-control" value="<fmt:formatNumber value='${d.valor }' type='currency'></fmt:formatNumber>" placeholder="Valor do serviço..."><br>
+                  </c:forEach>
                   </div>
+                  
                   </div>
                   <hr>
-                   <span class="input-group-btn"><button type="button" class="btn btn-success btn-add btn-md" style="width: 40px;"><b>+</b></button></span>
+                  
                 </div>
                 <small id="fileHelp" class="form-text text-muted text-left">
                     <p class="help-block">* Pressione <span class="fa fa-plus"></span> para adicionar campo no formulário <br>* Pressione <span class="fa fa-minus"></span> para remover o campo do formulário</p>

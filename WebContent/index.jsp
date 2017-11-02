@@ -717,9 +717,9 @@ $(function(){
 </div><!-- FIM DO PARALLAX -->
 <!-- Container (Preço Sessão) -->
 <div id="tabelaPreco" class="container-fluid bg-grey">
-  <div class="text-center">
+  <div  class="text-center">
     <h2>TABELA DE PREÇOS</h2>
-    <h4>iPhone</h4>
+   
     <hr>
   </div>
   <div class="row slideanim">

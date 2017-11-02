@@ -52,6 +52,10 @@ public class FiltroLogin implements Filter {
 		HttpServletResponse res = (HttpServletResponse)response;
 		
 		HttpSession session = req.getSession();
+		
+		if(req.getServletPath().equals("/admin/admin.jsp")) {
+			res.sendRedirect("../admin.jsp");
+		}
 		if(session.getAttribute("admin") != null) {
 			chain.doFilter(request, response);
 		}else {

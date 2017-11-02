@@ -105,50 +105,30 @@ public class ServletServico extends HttpServlet {
 	private void atualizarServico(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
-			String nomeServ = request.getParameter("nome");
-
-			// Salvar os dados do formulário
-
 			String path = getServletContext().getRealPath("/admin/imgProdutos") + "//";
-
-			String[] descricaoServ = request.getParameterValues("descricaoServ");
-			String[] valor = request.getParameterValues("precoServ");
-
-			DescricaoServico d = null;
-
-			Servico serv = new Servico();
 			String imagem_servico = Upload.upload(request, response, request.getPart("servico_imagem"), path);
-			serv.setCodigo(Long.parseLong(request.getParameter("idServ")));
-			serv.setNome(nomeServ);
-			serv.setFoto(imagem_servico);
-			Integer size = Integer.parseInt(request.getParameter("descsize"));
+			
+			Servico s = new Servico();
+			DescricaoServico d = null;
+			s.setCodigo(Long.parseLong(request.getParameter("id")));
+			s.setNome(request.getParameter("nome"));
+			s.setFoto(imagem_servico);
+			
+			String[] desc = request.getParameterValues("descricaoServ");
+			String[] ids = request.getParameterValues("idDesc");
+			String[] valores = request.getParameterValues("precoServ");
 			List<DescricaoServico> lista = new ArrayList<DescricaoServico>();
-			for (int i = 0; i < descricaoServ.length; i++) {
-
-				valor[i].trim();
-				if (size > descricaoServ.length) {
-					valor = request.getParameterValues("adprecoServ");
-					d = new DescricaoServico();
-					d.setCodigo(null);
-					d.setDescricao(descricaoServ[i]);
-					d.setValor(Double.parseDouble(valor[i].replace("R$", "").replace(",", ".")));
-					lista.add(d);
-					serv.setDesc(lista);
-				} else {
-					valor = request.getParameterValues("precoServ");
-					d = new DescricaoServico();
-					d.setCodigo(Long.parseLong(request.getParameter("idDesc")));
-					d.setDescricao(descricaoServ[i]);
-					d.setValor(Double.parseDouble(valor[i].replace("R$", "").replace(",", ".")));
-					lista.add(d);
-					serv.setDesc(lista);
-				}
+			for (int i = 0; i < ids.length; i++) {
+				d = new DescricaoServico();
+				d.setCodigo(Long.parseLong(ids[i]));
+				d.setDescricao(desc[i]);
+				d.setValor(Double.parseDouble(valores[i].replace("R$", "").replace(",", ".")));
+				lista.add(d);
 			}
-
-			new ServiceServico().save(serv);
-			System.out.println(serv.toString());
-			request.setAttribute("msg",
-					"<div class='alert alert-success text-center' id='div' style='heigth:30px;'><button type='button' class='close' data-dismiss='alert'>×</button><span class='glyphicon glyphicon-thumbs-up' style='font-size:20px;'></span> Servico editado com Sucesso!</div>");
+			s.setDesc(lista);
+			new ServiceServico().save(s);
+			System.out.println(s.toString());
+			request.setAttribute("msg","<div class='alert alert-success text-center' id='div' style='heigth:30px;'><button type='button' class='close' data-dismiss='alert'>×</button><span class='glyphicon glyphicon-thumbs-up' style='font-size:20px;'></span> Servico editado com Sucesso!</div>");
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -170,6 +150,7 @@ public class ServletServico extends HttpServlet {
 			Long id = Long.parseLong(request.getParameter("cod"));
 
 			request.setAttribute("s", s.SelectById(id));
+			request.setAttribute("d", s.listDesc(id));
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
