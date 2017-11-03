@@ -100,14 +100,14 @@ public class ServletControle extends HttpServlet {
 			String verso = Upload.upload(request, response, request.getPart("verso"),path);
 			
 			GeradorPdf.gerar(orc, request.getServletContext().getRealPath("pdf"));
-			EnvioEmail.orcamento(request.getServletContext().getRealPath("/")+File.separator+"img"+File.separator,"mauriciomoura222@gmail.com","Orçamento", o,path+frente, path+lateral,path+verso);
+			EnvioEmail.orcamento(request.getServletContext().getRealPath("/")+File.separator+"img"+File.separator,"mauriciomourams@gmail.com","Orçamento", o,path+frente, path+lateral,path+verso);
 		
 			request.setAttribute("message", "<div id='confirm' class='alert alert-success text-center' id='div'><button type='button' class='close' data-dismiss='alert'>×</button><span class='glyphicon glyphicon-thumbs-up' style='font-size:20px;'></span> Seu Orçamento foi enviado com sucesso, Aguarde a Resposta</div>");
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 			
 		} catch (Exception e1) {
 			request.setAttribute("message", "<div id='confirm' class='alert alert-danger text-center' id='div'><button type='button' class='close' data-dismiss='alert'>×</button><span class='glyphicon glyphicon-thumbs-up' style='font-size:20px;'></span> Falha ao enviar seu orçamento, tente novamente mais tarde</div>");
-			request.getRequestDispatcher("index.jsp#confirm").forward(request, response);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 			
 			e1.printStackTrace();
 		}

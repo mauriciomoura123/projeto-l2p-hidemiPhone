@@ -36,13 +36,15 @@
     <div class="container">
       <div class="row">
         <div class="col">
+          <div class="alert alert-warning">Por motivos de segurança da W3C as fotos devem ser upadas novamente</div>
           <div class="card">
            <form action="atualizar_servico" method="POST" enctype="multipart/form-data">
             <div class="card-header">
               <h4>Editar Serviço</h4>
             </div>
+           
             <div class="card-block">
-             
+            
                  <div class="form-group">
                           <div class="main-img-preview">
                             <img class="thumbnail img-mostrar-1" src="imgProdutos/${s.foto }" title="Imagem do Serviço">

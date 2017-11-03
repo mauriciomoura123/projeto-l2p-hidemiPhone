@@ -34,6 +34,7 @@
     <div class="container">
       <div class="row">
         <div class="col">
+        <div class="alert alert-warning">Por motivos de segurança da W3C as fotos devem ser upadas novamente</div>
           <div class="card">
             <div class="card-header">
               <h4>Editar Produto</h4>
